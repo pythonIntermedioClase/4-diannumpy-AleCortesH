@@ -523,8 +523,12 @@ def clasificar_valores_vectorizado(valores, umbral=1_000_000):
     """
     # TODO:
     # 1. Guarda "ALTO" en categoria_alta y "BAJO" en categoria_baja
+    categoria_alta = "ALTO"
+    categoria_baja = "BAJO"
+    
     # 2. Retorna np.where(valores > umbral, categoria_alta, categoria_baja)
-    pass
+    return np.where(valores > umbral, categoria_alta, categoria_baja)
+
 
 
 def aplicar_descuento_vectorizado(valores, pagos_voluntarios):
@@ -549,9 +553,12 @@ def aplicar_descuento_vectorizado(valores, pagos_voluntarios):
     """
     # TODO:
     # 1. Guarda 0.90 en factor_descuento
+    factor_descuento = 0.90
     # 2. Calcula valores_con_descuento = valores * factor_descuento
+    valores_con_descuento = valores * factor_descuento
     # 3. Retorna np.where(pagos_voluntarios, valores_con_descuento, valores)
-    pass
+    return np.where(pagos_voluntarios, valores_con_descuento, valores)
+    
 
 
 def calcular_sanciones_vectorizadas(valores, dias_mora):
@@ -583,23 +590,23 @@ def calcular_sanciones_vectorizadas(valores, dias_mora):
     """
     # TODO:
     # 1. Guarda cada tasa en una variable con nombre:
-    #    tasa_sin_mora = 0.00
-    #    tasa_mora_leve = 0.01
-    #    tasa_mora_moderada = 0.05
-    #    tasa_mora_grave = 0.10
+    tasa_sin_mora = 0.00
+    tasa_mora_leve = 0.01
+    tasa_mora_moderada = 0.05
+    tasa_mora_grave = 0.10
     # 2. Anida np.where para los cuatro tramos, uno por línea:
-    #    tasa = np.where(
-    #        dias_mora == 0,
-    #        tasa_sin_mora,
-    #        np.where(
-    #            dias_mora <= 30,
-    #            tasa_mora_leve,
-    #            np.where(
-    #                dias_mora <= 90,
-    #                tasa_mora_moderada,
-    #                tasa_mora_grave,
-    #            ),
-    #        ),
-    #    )
+    tasa = np.where(
+        dias_mora == 0,
+        tasa_sin_mora,
+        np.where(
+            dias_mora <= 30,
+            tasa_mora_leve,
+            np.where(
+                dias_mora <= 90,
+                tasa_mora_moderada,
+                tasa_mora_grave,
+            ),
+        ),
+    )
     # 3. Retorna valores * tasa
-    pass
+    return valores * tasa
