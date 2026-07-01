@@ -39,11 +39,7 @@ python main.py
 3. Ejecuta `python main.py` y verifica la salida.
 4. `git add`, `commit` y `push` al terminar cada sección.
 
-
-**Curso:** Python Intermedio para Análisis de Datos — DIAN 2026  
-**Duración:** 4 horas (240 min) 
----
-
+--
 ## Índice
 
 - [Sección 0 — Configurar el nuevo entorno](#sección-0--configurar-el-nuevo-entorno)
@@ -866,17 +862,17 @@ Cuando C hace lo mismo, ya tiene las instrucciones del procesador listas. No ver
 
 La analogía: tienes que sellar 10.000 sobres.
 
-- Con Python puro: le explicas a alguien cómo sellar un sobre, esperas que lo haga, le explicas el siguiente, esperas...
+- Con Python: le explicas a alguien cómo sellar un sobre, esperas que lo haga, le explicas el siguiente, esperas...
 - Con NumPy y C por debajo: le das a una máquina selladora el lote completo y la pones a correr.
 
 El núcleo de NumPy está escrito en C. Cuando escribes `arr * 0.19`, Python le pasa el array completo a funciones C ya compiladas, que ejecutan la operación sobre todos los elementos en una sola pasada y devuelven el resultado. Tú escribes Python; el trabajo pesado lo hace C.
 
-> **Nota:** no necesitas aprender C para usar NumPy. Solo necesitas saber que está ahí, haciendo el trabajo rápido para que tú puedas escribir código legible.
+> **Nota:** no necesitas aprender C para usar NumPy. Solo necesitas saber que está ahí, haciendo el trabajo para que tú puedas escribir código legible.
 
 Además de usar C, NumPy guarda los datos en **memoria contigua**: todos los valores del array están uno al lado del otro en la RAM, sin saltos. Una lista de Python, en cambio, guarda referencias dispersas: la dirección de memoria de cada elemento. El procesador tiene que ir a buscar cada valor por separado. Con un array contiguo, puede cargar varios valores a la vez en su caché y operar sobre ellos en paralelo.
 
 ### Benchmark: ver la diferencia con tus propios ojos
-Antes de implementar las funciones de la sección, mide la diferencia real entre calcular el IVA con un ciclo `for` y con NumPy vectorizado:
+Antes de implementar las funciones de la sección, mide la diferencia entre calcular el IVA con un ciclo `for` y con NumPy vectorizado. Sigue los siguientes pasos:
 
 1. Abre `main.py`.
 2. Justo debajo de los `import` (antes de las funciones `menu_...`), pega esta función:
@@ -948,7 +944,7 @@ valores = np.array([1_000_000, 500_000, 2_000_000], dtype=np.float64)
 iva = valores * 0.19
 print(iva)   # [190000.  95000. 380000.]
 
-# Array + escalar
+# Array + Array
 con_iva = valores + iva
 print(con_iva)   # [1190000.  595000. 2380000.]
 
