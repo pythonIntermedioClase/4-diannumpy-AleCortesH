@@ -442,8 +442,7 @@ def obtener_mascara_mora(dias_mora):
         -> array([False,  True, False,  True])
     """
     # TODO: retorna dias_mora > 0
-    pass
-
+    return dias_mora > 0
 
 def filtrar_valores_con_mora(valores, dias_mora):
     """
@@ -468,8 +467,10 @@ def filtrar_valores_con_mora(valores, dias_mora):
     """
     # TODO:
     # 1. Crea la máscara: mascara = dias_mora > 0
+    mascara = dias_mora > 0
     # 2. Retorna valores[mascara]
-    pass
+    return valores[mascara]
+    
 
 
 def contar_sobre_umbral(arr, umbral):
@@ -489,9 +490,11 @@ def contar_sobre_umbral(arr, umbral):
     """
     # TODO:
     # 1. Crea la máscara: mascara = arr > umbral
+    mascara = arr > umbral
     # 2. Cuenta los True con cantidad = np.sum(mascara)
+    cantidad = np.sum(mascara)
     # 3. Retorna int(cantidad)
-    pass
+    return int(cantidad)
 
 
 # ===========================================================================
