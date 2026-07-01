@@ -343,9 +343,11 @@ def normalizar_valores(arr):
     """
     # TODO: calcula minimo = arr.min(), maximo = arr.max()
     #       retorna (arr - minimo) / (maximo - minimo)
-    
+        
     minimo = arr.min()
     maximo = arr.max()
+    if minimo == maximo:
+        return np.zeros_like(arr, dtype=float)
     return (arr - minimo) / (maximo - minimo)
 
 
